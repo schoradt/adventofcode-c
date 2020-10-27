@@ -1,4 +1,4 @@
-project(kata)
+project(aoc2019)
 
 cmake_minimum_required(VERSION 2.8)
 
@@ -34,5 +34,10 @@ list(APPEND UNIT_TESTS
 foreach(TEST ${UNIT_TESTS})
     add_executable(${TEST} "${CMAKE_SOURCE_DIR}/test/${TEST}.cpp" "${CMAKE_SOURCE_DIR}/src/${TEST}.cpp")
     add_test(${TEST} ${TEST})
+
+    list(APPEND SOURCE_FILES
+        "${CMAKE_SOURCE_DIR}/src/${TEST}.cpp"
+    )
 endforeach()
 
+add_executable("aoc2019" "${CMAKE_SOURCE_DIR}/src/Runner.cpp" ${SOURCE_FILES})
