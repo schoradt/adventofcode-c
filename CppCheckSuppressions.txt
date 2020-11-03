@@ -1,1 +1,3 @@
 // This is the CppCheck suppression file, for global suppressions.
+*:include/doctest.h:*
+*:test/*
