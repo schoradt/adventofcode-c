@@ -25,19 +25,28 @@ include_directories("${CMAKE_SOURCE_DIR}/include")
 # Add Unit Tests file names (without .cpp extension)
 ####################################################
 list(APPEND UNIT_TESTS
+    Base
     Day1
 )
+
+list(APPEND SOURCES
+    Day1
+)
+
+foreach(SOURCE ${SOURCES})
+    list(APPEND SOURCE_FILES
+        "${CMAKE_SOURCE_DIR}/src/${SOURCE}.cpp"
+    )
+endforeach()
+
 
 ####################################################
 # Create executable for each test
 ####################################################
 foreach(TEST ${UNIT_TESTS})
-    add_executable(${TEST} "${CMAKE_SOURCE_DIR}/test/${TEST}.cpp" "${CMAKE_SOURCE_DIR}/src/${TEST}.cpp")
-    add_test(${TEST} ${TEST})
+    add_executable(${TEST} "${CMAKE_SOURCE_DIR}/test/${TEST}.cpp" ${SOURCE_FILES})
 
-    list(APPEND SOURCE_FILES
-        "${CMAKE_SOURCE_DIR}/src/${TEST}.cpp"
-    )
+    add_test(${TEST} ${TEST})
 endforeach()
 
 add_executable("aoc2019" "${CMAKE_SOURCE_DIR}/src/Runner.cpp" ${SOURCE_FILES})

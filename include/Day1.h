@@ -1,5 +1,7 @@
 
-class Day1
+#include "Base.h"
+
+class Day1: Base
 {
 private:
     /* data */
