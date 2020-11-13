@@ -1,13 +1,18 @@
 
 #include "Base.h"
 
-class Day1: Base
+class Day1: public Base
 {
 private:
     /* data */
 public:
     Day1(/* args */);
 
-    int test();
+    int part1(vector<int> masses);
+    int part2(vector<int> masses);
+
+    int computeFuel(int mass);
+
+    int computeFuelWithFuel(int mass);
 
 };
