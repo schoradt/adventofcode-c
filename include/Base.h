@@ -1,5 +1,8 @@
 
 
+#ifndef CBASE
+#define CBASE
+
 #include <vector>
 #include <string>
 #include <iostream>
@@ -25,6 +28,20 @@ public:
             result.push_back(line);
         }
 
+        return result;
+    }
+
+    string loadLine(string filename) {
+        string result;
+
+        ifstream input(filename);
+        
+        if (!input) {
+            cerr << "Fail to load file " << filename << endl;
+        }
+
+        getline(input, result);
+            
         return result;
     }
 
@@ -70,4 +87,32 @@ public:
 
         return result;
     }
+
+    std::string joinLine(const vector<string> &lst, const string &delim = ",") {
+        string ret;
+
+        for(const auto &s : lst) {
+            if(!ret.empty())
+                ret += delim;
+
+            ret += s;
+        }
+
+        return ret;
+    }
+
+    std::string joinLine(const vector<int> &lst, const string &delim = ",") {
+        string ret;
+
+        for(const auto &s : lst) {
+            if(!ret.empty())
+                ret += delim;
+
+            ret += s;
+        }
+
+        return ret;
+    }
 };
+
+#endif

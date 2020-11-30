@@ -27,10 +27,12 @@ include_directories("${CMAKE_SOURCE_DIR}/include")
 list(APPEND UNIT_TESTS
     Base
     Day1
+    Day2
 )
 
 list(APPEND SOURCES
     Day1
+    Day2
 )
 
 foreach(SOURCE ${SOURCES})
