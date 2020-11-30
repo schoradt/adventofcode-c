@@ -1,4 +1,4 @@
-project(aoc2019)
+project(aoc)
 
 cmake_minimum_required(VERSION 2.8)
 
@@ -49,4 +49,4 @@ foreach(TEST ${UNIT_TESTS})
     add_test(${TEST} ${TEST})
 endforeach()
 
-add_executable("aoc2019" "${CMAKE_SOURCE_DIR}/src/Runner.cpp" ${SOURCE_FILES})
+add_executable("aoc" "${CMAKE_SOURCE_DIR}/src/Runner.cpp" ${SOURCE_FILES})
