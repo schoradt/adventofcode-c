@@ -24,5 +24,17 @@ int Day1::process1(vector<int> input) {
 }
 
 int Day1::process2(vector<int> input) {
-    return 42;
+    int targetSum = 2020;
+
+    for(const auto& a: input) {
+        for(const auto& b: input) {
+            for(const auto& c: input) {
+                if (a + b + c == targetSum) {
+                    return (a * b * c);
+                }
+            }
+        }
+    }
+
+    return -1;
 }
