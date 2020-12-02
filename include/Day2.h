@@ -8,7 +8,7 @@ private:
 public:
     Day2(/* args */);
 
-    int process1(vector<int> input);
+    int process1(vector<string> input);
 
     int process2(vector<int> input);
 };

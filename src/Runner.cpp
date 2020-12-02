@@ -1,5 +1,6 @@
 
 #include "Day1.h"
+#include "Day2.h"
 
 #include <iostream>
 
@@ -14,8 +15,19 @@ void day1() {
     cout << "Day 1 part 2 " << day1.process2(input) << endl;
 }
 
+void day2() {
+    Day2 day;
+
+    vector<string> input = day.loadLines("../data/day2.txt");
+
+    cout << "Day 2 part 1 " << day.process1(input) << endl;
+    //cout << "Day 1 part 2 " << day.process2(input) << endl;
+}
+
+
 int main() {
     day1();
+    day2();
 
     return 0;
 }
