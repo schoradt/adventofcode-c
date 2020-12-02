@@ -3,16 +3,31 @@
 #include "Day2.h"
 
 #include <iostream>
+#include <chrono>
 
 using namespace std;
+using namespace std::chrono; 
 
 void day1() {
-    Day1 day1;
+    Day1 day;
 
-    vector<int> input = day1.parseIntergerLines(day1.loadLines("../data/day1.txt"));
+    vector<int> input = day.parseIntergerLines(day.loadLines("../data/day1.txt"));
 
-    cout << "Day 1 part 1 " << day1.process1(input) << endl;
-    cout << "Day 1 part 2 " << day1.process2(input) << endl;
+    auto start = high_resolution_clock::now(); 
+    int res1 = day.process1(input);
+    auto stop = high_resolution_clock::now(); 
+
+    auto duration = duration_cast<microseconds>(stop - start); 
+
+    cout << "Day 1 part 1 " << res1 << " (" << duration.count() << " microseconds)" << endl;
+
+    start = high_resolution_clock::now(); 
+    int res2 = day.process2(input);
+    stop = high_resolution_clock::now(); 
+
+    duration = duration_cast<microseconds>(stop - start); 
+
+    cout << "Day 1 part 2 " << res2 << " (" << duration.count() << " microseconds)" << endl;
 }
 
 void day2() {
@@ -20,8 +35,21 @@ void day2() {
 
     vector<string> input = day.loadLines("../data/day2.txt");
 
-    cout << "Day 2 part 1 " << day.process1(input) << endl;
-    cout << "Day 2 part 2 " << day.process2(input) << endl;
+    auto start = high_resolution_clock::now(); 
+    int res1 = day.process1(input);
+    auto stop = high_resolution_clock::now(); 
+
+    auto duration = duration_cast<microseconds>(stop - start); 
+
+    cout << "Day 2 part 1 " << res1 << " (" << duration.count() << " microseconds)" << endl;
+
+    start = high_resolution_clock::now(); 
+    int res2 = day.process2(input);
+    stop = high_resolution_clock::now(); 
+
+    duration = duration_cast<microseconds>(stop - start); 
+
+    cout << "Day 2 part 2 " << res2 << " (" << duration.count() << " microseconds)" << endl;
 }
 
 
