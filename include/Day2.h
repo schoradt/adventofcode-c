@@ -4,7 +4,23 @@
 class Day2: public Base
 {
 private:
-    /* data */
+    class Line {
+        private:
+            int first;
+            int last;
+            char c;
+
+            string content;
+        public:
+            Line(string line);
+
+            int getFirst();
+            int getLast();
+            char getChar();
+
+            string getContent();
+    };
+
 public:
     Day2(/* args */);
 
