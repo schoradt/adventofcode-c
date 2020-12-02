@@ -10,5 +10,5 @@ public:
 
     int process1(vector<string> input);
 
-    int process2(vector<int> input);
+    int process2(vector<string> input);
 };

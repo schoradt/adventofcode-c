@@ -21,7 +21,7 @@ void day2() {
     vector<string> input = day.loadLines("../data/day2.txt");
 
     cout << "Day 2 part 1 " << day.process1(input) << endl;
-    //cout << "Day 1 part 2 " << day.process2(input) << endl;
+    cout << "Day 2 part 2 " << day.process2(input) << endl;
 }
 
 
