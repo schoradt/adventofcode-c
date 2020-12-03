@@ -28,11 +28,13 @@ list(APPEND UNIT_TESTS
     Base
     Day1
     Day2
+    Day3
 )
 
 list(APPEND SOURCES
     Day1
     Day2
+    Day3
 )
 
 foreach(SOURCE ${SOURCES})
