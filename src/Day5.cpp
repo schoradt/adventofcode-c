@@ -2,8 +2,8 @@
 #include "Day5.h"
 
 #include <iostream>
-#include <map>
-#include <regex>
+#include <vector>
+#include <algorithm> 
 
 using namespace std;
 
@@ -86,5 +86,30 @@ int Day5::process1(vector<string> input) {
 }
 
 int Day5::process2(vector<string> input) {
+    int max = 0;
+    int min = 1024;
+
+    vector<int> seats;
+
+    for(string line: input) {
+        int seatId = computeSeatId(line);
+
+        if (seatId > max) {
+            max = seatId;
+        }
+
+        if (seatId < min) {
+            min = seatId;
+        }
+
+        seats.push_back(seatId);
+    }
+
+    for (int i = min; i < max; i++) {
+        if (find(seats.begin(), seats.end(), i) == seats.end()) {
+            return i;
+        }
+    }
+
     return -1;
 }
