@@ -13,6 +13,8 @@ private:
 public:
     Day5(/* args */);
 
+    int computeSeatId(string boardingPass);
+
     int process1(vector<string> input);
 
     int process2(vector<string> input);
