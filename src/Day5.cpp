@@ -28,7 +28,6 @@ int Day5::computeReduction(string rules, int low, int high, char lower, char upp
 int Day5::computeSeatId(string boardingPass) {
 
     int row = computeReduction(boardingPass.substr(0, 7), 0, 127, 'F', 'B');
-
     int seat = computeReduction(boardingPass.substr(7, 3), 0, 7, 'L', 'R');
     
     return row * 8 + seat;
