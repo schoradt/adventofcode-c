@@ -34,6 +34,43 @@ int Day6::process1(vector<string> input) {
 }
 
 int Day6::process2(vector<string> input) {
+    set<char>* row = NULL;
+    set<char>* answers = NULL;
 
-    return -1;
+    int sum = 0;
+
+    for(string line: input) {
+        if (line == "") {
+            if (answers != NULL) {
+                sum += answers->size();
+            }
+            
+            delete answers;
+
+            answers = NULL;
+        } else {
+            row = new set<char>();
+
+            for(char answer: line) {
+                row->insert(answer);
+            }
+
+            if (answers == NULL) {
+                answers = row;
+            } else {
+                set<char>* intersect = new set<char>();
+
+                set_intersection(answers->begin(),answers->end(),row->begin(),row->end(), std::inserter(*intersect, intersect->begin()));
+
+                delete row;
+                delete answers;
+                
+                answers = intersect;
+            }
+        }
+    }
+
+    sum += answers->size();
+
+    return sum;
 }
