@@ -27,8 +27,8 @@ string Day7::cleanupName(string name) {
     return name;
 }
 
-map<string, vector<tuple<int, string> > >* Day7::parseBags(vector<string> input) {
-    map<string, vector<tuple<int, string> > >* bags = new map<string, vector<tuple<int, string> > >();
+map<string, map<string, int> >* Day7::parseBags(vector<string> input) {
+    map<string, map<string, int> >* bags = new map<string, map<string, int> >();
 
     for (string line: input) {
         size_t index = line.find("contain");
@@ -40,7 +40,7 @@ map<string, vector<tuple<int, string> > >* Day7::parseBags(vector<string> input)
 
         vector<string> elems = splitLine(tail, ", ");
 
-        vector<tuple<int, string> > childs;
+        map<string, int> childs;
 
         if ( bags->find(name) == bags->end() ) {
             (*bags)[name] = childs;
@@ -52,7 +52,7 @@ map<string, vector<tuple<int, string> > >* Day7::parseBags(vector<string> input)
             int num = atoi(elem.substr(0, index).c_str());
             string eName = cleanupName(elem.substr(index + 1));
 
-            (*bags)[name].push_back(std::make_tuple(num, eName));
+            (*bags)[name][eName] = num;
         }
     }
 
@@ -60,7 +60,7 @@ map<string, vector<tuple<int, string> > >* Day7::parseBags(vector<string> input)
 }
 
 int Day7::process1(vector<string> input) {
-    map<string, vector<tuple<int, string> > >* bags = parseBags(input);
+    map<string, map<string, int> >* bags = parseBags(input);
 
     int count = 0;
 
@@ -77,13 +77,10 @@ int Day7::process1(vector<string> input) {
 
         for (string name: inProcess) {
             for (auto const& e : (*bags)) {
-                for (tuple<int, string> t: e.second) {
-                    string test = std::get<1>(t);
-
-                    if (test == name && processed.find(e.first) == processed.end()) {
-                        toProcess.insert(e.first);
-                    }
+                if (e.second.find(name) != e.second.end() && processed.find(e.first) == processed.end()) {
+                    toProcess.insert(e.first);
                 }
+            
             }
 
             processed.insert(name);
@@ -96,16 +93,14 @@ int Day7::process1(vector<string> input) {
     return count;
 }
 
-int containsBags(map<string, vector<tuple<int, string> > >* bags, string name) {
-    vector<tuple<int, string> > childs = (*bags)[name];
-
+int containsBags(map<string, map<string, int> >* bags, string name) {
     int sum = 0;
 
-    for (tuple<int, string> t: (*bags)[name]) {
-        int num = std::get<0>(t);
+    for (const auto &t: (*bags)[name]) {
+        int num = t.second;
 
         if (num != 0) {
-            int sub = containsBags(bags, std::get<1>(t));
+            int sub = containsBags(bags, t.first);
 
             sum += num + num * sub;    
         }
@@ -115,7 +110,7 @@ int containsBags(map<string, vector<tuple<int, string> > >* bags, string name) {
 }
 
 int Day7::process2(vector<string> input) {
-    map<string, vector<tuple<int, string> > >* bags = parseBags(input);
+    map<string, map<string, int> >* bags = parseBags(input);
 
     int count = 0;
 

@@ -12,7 +12,7 @@ private:
     // private vars
     string cleanupName(string);
 
-    map<string, vector<tuple<int, string> > >* parseBags(vector<string> input);
+    map<string, map<string, int> >* parseBags(vector<string> input);
 public:
     Day7(/* args */);
 
