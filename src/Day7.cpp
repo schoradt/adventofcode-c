@@ -94,13 +94,9 @@ int Day7::process1(vector<string> input) {
 int containsBags(map<string, vector<tuple<int, string> > >* bags, string name) {
     vector<tuple<int, string> > childs = (*bags)[name];
 
-    //cout << "recurese " << name << endl;
-
     int sum = 0;
 
     for (tuple<int, string> t: (*bags)[name]) {
-        //cout << "- " << std::get<0>(t) << " " << std::get<1>(t) << endl;
-
         int num = std::get<0>(t);
 
         if (num != 0) {
@@ -109,8 +105,6 @@ int containsBags(map<string, vector<tuple<int, string> > >* bags, string name) {
             sum += num + num * sub;    
         }
     }
-
-    //cout << "sum " << name << " = " << sum << endl;
 
     return sum;
 }
