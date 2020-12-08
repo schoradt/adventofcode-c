@@ -10,6 +10,8 @@ class Day8: public Base
 {
 private:
     // private vars
+    int runProgramm(vector<string> input, bool* fail);
+
 public:
     Day8(/* args */);
 

@@ -17,7 +17,7 @@ TEST_CASE("Testing Day 8 process 2")
 {
     Day8 day;
 
-    vector<string> input = day.loadLinesString("");
+    vector<string> input = day.loadLinesString("nop +0\nacc +1\njmp +4\nacc +3\njmp -3\nacc -99\nacc +1\njmp -4\nacc +6");
 
-    CHECK_MESSAGE(-1 == day.process2(input), "test process 2");
+    CHECK_MESSAGE(8 == day.process2(input), "test process 2");
 }
