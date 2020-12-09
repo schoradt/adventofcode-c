@@ -194,10 +194,10 @@ void day8() {
 void day9() {
     Day9 day;
 
-    vector<string> input = day.loadLines("../data/day8.txt");
+    vector<long> input = day.parseLongLines(day.loadLines("../data/day9.txt"));
 
     auto start = high_resolution_clock::now(); 
-    int res1 = day.process1(input);
+    int res1 = day.process1(input, 25);
     auto stop = high_resolution_clock::now(); 
 
     auto duration = duration_cast<microseconds>(stop - start); 
@@ -205,7 +205,7 @@ void day9() {
     cout << "Day 9 part 1 " << res1 << " (" << duration.count() << " microseconds)" << endl;
 
     start = high_resolution_clock::now(); 
-    long res2 = day.process2(input);
+    long res2 = day.process2(input, 25);
     stop = high_resolution_clock::now(); 
 
     duration = duration_cast<microseconds>(stop - start); 
