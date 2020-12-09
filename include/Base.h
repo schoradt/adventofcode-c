@@ -69,6 +69,16 @@ public:
         return result;
     }
 
+    vector<long> parseLongLines(vector<string> strings) {
+        vector<long> result;
+
+        for(const auto& value: strings) {
+            result.push_back(stol(value));
+        }
+
+        return result;
+    }
+
     vector<string> splitLine(string line, string delim = ",") {
         vector<string> result;
 
