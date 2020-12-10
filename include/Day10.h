@@ -13,7 +13,7 @@ private:
 public:
     Day10(/* args */);
 
-    long process1(vector<long> input);
+    long process1(vector<int> input);
 
-    long process2(vector<long> input);
+    long process2(vector<int> input);
 };

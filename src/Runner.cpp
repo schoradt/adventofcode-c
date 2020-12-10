@@ -19,7 +19,7 @@ using namespace std::chrono;
 void day1() {
     Day1 day;
 
-    vector<int> input = day.parseIntergerLines(day.loadLines("../data/day1.txt"));
+    vector<int> input = day.parseIntegerLines(day.loadLines("../data/day1.txt"));
 
     auto start = high_resolution_clock::now(); 
     int res1 = day.process1(input);
@@ -217,7 +217,7 @@ void day9() {
 void day10() {
     Day10 day;
 
-    vector<long> input = day.parseLongLines(day.loadLines("../data/day9.txt"));
+    vector<int> input = day.parseIntegerLines(day.loadLines("../data/day10.txt"));
 
     auto start = high_resolution_clock::now(); 
     long res1 = day.process1(input);

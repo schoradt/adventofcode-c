@@ -71,7 +71,7 @@ TEST_CASE("Testing Base parseIntegerLines")
 
     CHECK_MESSAGE(5 == stringLines.size(), "res size is 5");
 
-    vector<int> res = base.parseIntergerLines(stringLines);
+    vector<int> res = base.parseIntegerLines(stringLines);
 
     CHECK_MESSAGE(5 == res.size(), "res size is 5");
 
@@ -105,7 +105,7 @@ TEST_CASE("Testing Base joinLine integer")
 
     vector<string> strings = base.splitLine("1,2,3,4,5");
 
-    vector<int> res = base.parseIntergerLines(strings);
+    vector<int> res = base.parseIntegerLines(strings);
 
     CHECK_MESSAGE(5 == res.size(), "res size is 5");
 

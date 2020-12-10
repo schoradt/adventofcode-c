@@ -59,7 +59,7 @@ public:
         return result;
     }
 
-    vector<int> parseIntergerLines(vector<string> strings) {
+    vector<int> parseIntegerLines(vector<string> strings) {
         vector<int> result;
 
         for(const auto& value: strings) {
