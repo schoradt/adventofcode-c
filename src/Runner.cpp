@@ -240,7 +240,7 @@ void day10() {
 void day11() {
     Day11 day;
 
-    vector<int> input = day.parseIntegerLines(day.loadLines("../data/day10.txt"));
+    vector<string> input = day.loadLines("../data/day11.txt");
 
     auto start = high_resolution_clock::now(); 
     long res1 = day.process1(input);
