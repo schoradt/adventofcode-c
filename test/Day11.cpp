@@ -17,7 +17,7 @@ TEST_CASE("Testing Day 11 process 2")
 {
     Day11 day;
 
-    vector<string> input = day.loadLinesString("");
+    vector<string> input = day.loadLinesString("L.LL.LL.LL\nLLLLLLL.LL\nL.L.L..L..\nLLLL.LL.LL\nL.LL.LL.LL\nL.LLLLL.LL\n..L.L.....\nLLLLLLLLLL\nL.LLLLLL.L\nL.LLLLL.LL");
 
-    CHECK_MESSAGE(-1 == day.process2(input), "test process 2");
+    CHECK_MESSAGE(26 == day.process2(input), "test process 2");
 }
