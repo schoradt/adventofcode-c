@@ -9,6 +9,7 @@
 #include "Day8.h"
 #include "Day9.h"
 #include "Day10.h"
+#include "Day11.h"
 
 #include <iostream>
 #include <chrono>
@@ -236,6 +237,27 @@ void day10() {
     cout << "Day 10 part 2 " << res2 << " (" << duration.count() << " microseconds)" << endl;
 }
 
+void day11() {
+    Day11 day;
+
+    vector<int> input = day.parseIntegerLines(day.loadLines("../data/day10.txt"));
+
+    auto start = high_resolution_clock::now(); 
+    long res1 = day.process1(input);
+    auto stop = high_resolution_clock::now(); 
+
+    auto duration = duration_cast<microseconds>(stop - start); 
+
+    cout << "Day 11 part 1 " << res1 << " (" << duration.count() << " microseconds)" << endl;
+
+    start = high_resolution_clock::now(); 
+    long res2 = day.process2(input);
+    stop = high_resolution_clock::now(); 
+
+    duration = duration_cast<microseconds>(stop - start); 
+
+    cout << "Day 11 part 2 " << res2 << " (" << duration.count() << " microseconds)" << endl;
+}
 
 int main() {
     day1();
@@ -248,6 +270,7 @@ int main() {
     day8();
     day9();
     day10();
+    day11();
 
     return 0;
 }
