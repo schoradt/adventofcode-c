@@ -70,5 +70,82 @@ long Day12::process1(vector<string> input) {
 }
 
 long Day12::process2(vector<string> input) {
-    return -1;
+    int north = 0;
+    int east = 0;
+
+    int wnorth = 1;
+    int weast = 10;
+
+    int degre = 0;
+
+    for (string line: input) {
+        char action = line[0];
+        int number = atoi(line.substr(1).c_str());
+
+        //cout << "STEP " << "(" << east << ", " << north << ") " << "(" << weast << ", " << wnorth << ") " << " - " << action << " -> " << number << endl;
+
+        int teast;
+
+        switch (action) {
+            case 'N':
+                wnorth = wnorth + number;
+                break;
+            case 'S':
+                wnorth = wnorth - number;
+                break;
+            case 'E':
+                weast = weast + number;
+                break;
+            case 'W':
+                weast = weast - number;
+                break;
+            case 'L':
+                teast = weast;
+
+                if (number == 0) {
+                    // noop
+                } else if (number == 90) {
+                    weast = -1 * wnorth;
+                    wnorth = teast;
+                } else if (number == 180) {
+                    weast = -1 * weast;
+                    wnorth = -1 * wnorth;
+                } else if (number == 270) {
+                    weast = wnorth;
+                    wnorth = -1 * teast;
+                } else {
+                    cout << "ERROR " << "(" << east << ", " << north << ") " << "(" << weast << ", " << wnorth << ") " << " - " << action << " -> " << number << endl;    
+                }
+
+                break;
+            case 'R': 
+                teast = weast;
+
+                if (number == 0) {
+                    // noop
+                } else if (number == 270) {
+                    weast = -1 * wnorth;
+                    wnorth = teast;
+                } else if (number == 180) {
+                    weast = -1 * weast;
+                    wnorth = -1 * wnorth;
+                } else if (number == 90) {
+                    weast = wnorth;
+                    wnorth = -1 * teast;
+                } else {
+                    cout << "ERROR " << "(" << east << ", " << north << ") " << degre << "° - " << action << " -> " << number << endl;    
+                }
+
+                break;
+            case 'F':
+                east = east + number * weast;
+                north = north + number * wnorth;
+
+                break;
+            default:
+                cout << "ERROR " << "(" << east << ", " << north << ") " << degre << "° - " << action << " -> " << number << endl;
+        }
+    }
+
+    return abs(north) + abs(east);
 }
