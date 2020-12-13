@@ -297,7 +297,7 @@ void day13() {
     cout << "Day 13 part 1 " << res1 << " (" << duration.count() << " microseconds)" << endl;
 
     start = high_resolution_clock::now(); 
-    long res2 = day.process2(input);
+    long res2 = day.process2(input, 100000000000000);
     stop = high_resolution_clock::now(); 
 
     duration = duration_cast<microseconds>(stop - start); 

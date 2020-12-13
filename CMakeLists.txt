@@ -25,7 +25,6 @@ include_directories("${CMAKE_SOURCE_DIR}/include")
 # Add Unit Tests file names (without .cpp extension)
 ####################################################
 list(APPEND UNIT_TESTS
-    Base
     Day1
     Day2
     Day3
@@ -68,7 +67,7 @@ endforeach()
 # Create executable for each test
 ####################################################
 foreach(TEST ${UNIT_TESTS})
-    add_executable(${TEST} "${CMAKE_SOURCE_DIR}/test/${TEST}.cpp" ${SOURCE_FILES})
+    add_executable(${TEST} "${CMAKE_SOURCE_DIR}/test/${TEST}.cpp" "${CMAKE_SOURCE_DIR}/src/${TEST}.cpp")
 
     add_test(${TEST} ${TEST})
 endforeach()

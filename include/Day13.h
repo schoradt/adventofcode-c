@@ -15,5 +15,5 @@ public:
 
     long process1(vector<string> input);
 
-    long process2(vector<string> input);
+    long process2(vector<string> input, long start);
 };
