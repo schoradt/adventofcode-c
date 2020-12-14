@@ -38,6 +38,7 @@ list(APPEND UNIT_TESTS
     Day11
     Day12
     Day13
+    Day14
 )
 
 list(APPEND SOURCES
@@ -54,6 +55,7 @@ list(APPEND SOURCES
     Day11
     Day12
     Day13
+    Day14
 )
 
 foreach(SOURCE ${SOURCES})
