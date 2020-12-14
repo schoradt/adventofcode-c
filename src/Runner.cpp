@@ -309,7 +309,7 @@ void day13() {
 void day14() {
     Day14 day;
 
-    vector<string> input = day.loadLines("../data/day13.txt");
+    vector<string> input = day.loadLines("../data/day14.txt");
 
     auto start = high_resolution_clock::now(); 
     long res1 = day.process1(input);
