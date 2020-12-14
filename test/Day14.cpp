@@ -19,6 +19,6 @@ TEST_CASE("Testing Day 14 process 2")
 
     vector<string> input;
 
-    input = day.loadLinesString("");
-    CHECK_MESSAGE(-1 == day.process2(input, 0), "test process 2");
+    input = day.loadLinesString("mask = 000000000000000000000000000000X1001X\nmem[42] = 100\nmask = 00000000000000000000000000000000X0XX\nmem[26] = 1");
+    CHECK_MESSAGE(208 == day.process2(input, 0), "test process 2");
 }
