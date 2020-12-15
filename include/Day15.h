@@ -10,6 +10,8 @@ class Day15: public Base
 {
 private:
     // private vars
+    long playGame(vector<int> input, size_t target);
+
 public:
     Day15(/* args */);
 

@@ -14,41 +14,49 @@ Day15::Day15() {
 
 }
 
-long Day15::process1(vector<int> input) {
-    vector<long> memory;
+long Day15::playGame(vector<int> input, size_t target) {
+    map<long, size_t> helper;
+    map<long, size_t>::iterator it;
+
+    int index = -1;
+
+    long last = 0;
 
     for(int i: input) {
-        memory.push_back(i);
-    }
-
-    while (memory.size() < 2020) {
-        long last = memory.back();
-
-        //cout << "MEMORY ";
-        //for (size_t i = 0; i < memory.size(); i++) cout << memory.at(i) << " ";
-        //cout << endl;
-
-        int lastIndex = memory.size() - 1;
-        int preIndex = -1;
-
-        for (int i = lastIndex - 1; i >= 0; --i) {
-            if (memory[i] == last) {
-                preIndex = i;
-
-                break;
-            }
+        if (index >= 0) {
+            helper[last] = index;
         }
 
-        if (preIndex == -1) {
-            memory.push_back(0);
+        last = i;
+
+        index++;
+    }
+
+    while (index + 1 < (int)target) {
+        int lastIndex = index;
+        long comp;
+        
+        it = helper.find(last);
+
+        if (it == helper.end()) {
+            comp = 0;
         } else {
-            memory.push_back(lastIndex - preIndex);
+            comp = lastIndex - it->second;
         }
+
+        helper[last] = lastIndex;
+
+        last = comp;
+        index++;
     }
 
-    return memory.back();
+    return last;
+}
+
+long Day15::process1(vector<int> input) {
+    return playGame(input, 2020);
 }
 
 long Day15::process2(vector<int> input) {
-    return -1;
+    return playGame(input, 30000000);
 }

@@ -20,8 +20,5 @@ TEST_CASE("Testing Day 15 process 2")
 {
     Day15 day;
 
-    vector<int> input;
-
-    //input = day.loadLinesString("");
-    CHECK_MESSAGE(-1 == day.process2(input), "test process 2");
+    //CHECK_MESSAGE(2578 == day.process2(day.parseIntegerLines(day.splitLine("1,3,2"))), "test process 2");
 }
