@@ -6,7 +6,8 @@
 #include <map>
 #include <vector>
 #include <list>
-#include <algorithm> 
+#include <algorithm>
+#include <unordered_map>
 
 using namespace std;
 
@@ -15,8 +16,8 @@ Day15::Day15() {
 }
 
 long Day15::playGame(vector<int> input, size_t target) {
-    map<long, size_t> helper;
-    map<long, size_t>::iterator it;
+    unordered_map<int, long> helper;
+    unordered_map<int, long>::iterator it;
 
     int index = -1;
 
