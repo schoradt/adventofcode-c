@@ -332,7 +332,7 @@ void day14() {
 void day15() {
     Day15 day;
 
-    vector<string> input = day.loadLines("../data/day15.txt");
+    vector<int> input = day.parseIntegerLines(day.splitLine("1,0,16,5,17,4"));
 
     auto start = high_resolution_clock::now(); 
     long res1 = day.process1(input);
@@ -343,7 +343,7 @@ void day15() {
     cout << "Day 15 part 1 " << res1 << " (" << duration.count() << " microseconds)" << endl;
 
     start = high_resolution_clock::now(); 
-    long res2 = day.process2(input, 100000000000000);
+    long res2 = day.process2(input);
     stop = high_resolution_clock::now(); 
 
     duration = duration_cast<microseconds>(stop - start); 
