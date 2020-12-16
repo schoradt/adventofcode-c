@@ -15,5 +15,5 @@ TEST_CASE("Testing Day 16 process 2")
 {
     Day16 day;
 
-    CHECK_MESSAGE(-1 == day.process2(day.splitLine("1")), "test process 2");
+    CHECK_MESSAGE(1 == day.process2(day.loadLinesString("class: 0-1 or 4-19\nrow: 0-5 or 8-19\nseat: 0-13 or 16-19\n\nyour ticket:\n11,12,13\n\nnearby tickets:\n3,9,18\n15,1,5\n5,14,9")), "test process 2");
 }
