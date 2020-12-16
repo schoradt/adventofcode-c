@@ -357,7 +357,7 @@ void day15() {
 void day16() {
     Day16 day;
 
-    vector<int> input = day.parseIntegerLines(day.splitLine("1"));
+    vector<string> input = day.loadLines("../data/day16.txt");
 
     auto start = high_resolution_clock::now(); 
     long res1 = day.process1(input);
