@@ -7,7 +7,7 @@ enable_testing()
 ####################################################
 # Set the C++ Standard to be used (Default to C++11)
 ####################################################
-set(CXX_STANDARD 11)
+set(CXX_STANDARD 17)
 set(CXX_STANDARD_REQUIRED ON)
 
 ####################################################################
