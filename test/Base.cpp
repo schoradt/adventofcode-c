@@ -24,7 +24,7 @@ TEST_CASE("Testing Base loadLines")
 {
     Base base;
 
-    vector<string> res = base.loadLines("../data/test1.txt");
+    vector<string> res = base.loadLines("../data/test_base1.txt");
 
     CHECK_MESSAGE(5 == res.size(), "res size is 5");
 
@@ -39,7 +39,7 @@ TEST_CASE("Testing Base loadLine")
 {
     Base base;
 
-    string res = base.loadLine("../data/test2.txt");
+    string res = base.loadLine("../data/test_base2.txt");
 
     CHECK_MESSAGE(res.compare("1,2,3,4,5") == 0, "line loaded");
 }
