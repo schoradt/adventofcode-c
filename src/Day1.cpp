@@ -2,6 +2,7 @@
 #include "Day1.h"
 
 #include <iostream>
+#include <numeric>
 
 using namespace std;
 
@@ -28,10 +29,12 @@ int Day1::process1(vector<int> lines) {
 
 int Day1::process2(vector<int> lines) {
     int increases = 0;
-    
-    for (std::vector<int>::size_type i = 3; i < lines.size(); i++) {
-        int prevWindow = lines[i - 3] + lines[i - 2] + lines[i - 1];
-        int actWindow = lines[i - 2] + lines[i - 1] + lines[i];
+    for(auto it = begin(lines) + 3; it != end(lines); ++it) {
+        auto start = it - 2;
+        auto end = it + 1;
+
+        int prevWindow = accumulate(start - 1, end - 1, 0);
+        int actWindow = accumulate(start, end, 0);
 
         if (prevWindow < actWindow) {
             increases++;
