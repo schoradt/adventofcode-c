@@ -28,7 +28,7 @@ void day2() {
 void day3() {
     Day3 day3;
 
-    vector<int> lines = day3.parseIntegerLines(day3.loadLines("../data/test1.txt"));
+    vector<string> lines = day3.loadLines("../data/test3.txt");
 
     cout << "Day 3 part 1 " << day3.process1(lines) << endl;
     cout << "Day 3 part 2 " << day3.process2(lines) << endl;
